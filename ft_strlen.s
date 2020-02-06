@@ -19,7 +19,7 @@ _ft_strlen:
 loop:
 				mov				cl, [rdi + rax]
 				cmp				rcx, 0
-				jne				reloop
+				jne				newloop
 				jmp				end
 newloop:
 				inc				rax
