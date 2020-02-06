@@ -18,7 +18,7 @@ _ft_strcpy:
 loop:
 				mov				cl, [rsi + rax]
 				cmp				cl, 0
-				jvaquer			end
+				je				end
 				mov				[rdi + rax], cl
 				inc				rax
 				jmp				loop
