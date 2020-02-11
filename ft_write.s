@@ -16,4 +16,11 @@
 _ft_write:
 				mov				rax, 0x2000004
 				syscall
+				cmp				rdx, 0
+				je				ok
+				cmp				rdi, 0
+				je				ok
+				mov				rax, -1
+				ret
+ok:
 				ret

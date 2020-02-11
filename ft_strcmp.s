@@ -13,14 +13,21 @@
 				global	_ft_strcmp
 				section	__TEXT,__text
 _ft_strcmp:
-		mov		rcx, 0
+				jmp				loop
 loop:
-		mov		rax, 0
-		mov		al, [rdi]
-		mov		cl, [rsi]
-		inc		rdi
-		inc		rsi
-		sub		rax, rcx
-		jz		loop
+				mov				rax, 0
+				mov				r8, 0
+				mov				r9, 0
+				mov				r8b, [rdi]
+				mov				r9b, [rsi]
+				inc				rdi
+				inc				rsi
+				cmp				r9, byte 0
+				je				end
+				sub				r8, r9
+				cmp				r8, byte 0
+				jne				end
+				jz				loop
 end:
-		ret
+				mov				rax, r8
+				ret

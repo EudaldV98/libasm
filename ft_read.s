@@ -11,9 +11,14 @@
 # **************************************************************************** #
 
 
-                global  _ft_read
-                section __TEXT,__text
+				global  _ft_read
+				section __TEXT,__text
 _ft_read:
-                mov             rax, 0x2000003
-                syscall
-                ret
+				mov             rax, 0x2000003
+				syscall
+				cmp				rdx, 0
+				je				ok
+				mov				rax, -1
+				ret
+ok:
+				ret
