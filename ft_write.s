@@ -18,9 +18,6 @@ _ft_write:
 				syscall
 				cmp				rdx, 0
 				je				ok
-				cmp				rdi, 0
-				je				ok
-				mov				rax, -1
 				ret
 ok:
 				ret
