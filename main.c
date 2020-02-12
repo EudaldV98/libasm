@@ -6,7 +6,7 @@
 /*   By: jvaquer <jvaquer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 17:34:20 by jvaquer           #+#    #+#             */
-/*   Updated: 2020/02/11 14:43:08 by jvaquer          ###   ########.fr       */
+/*   Updated: 2020/02/12 16:29:33 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
 ssize_t	ft_read(int fd, const void *buf, size_t count);
+char	*ft_strdup(const char *s);
 
 int     main(int argc, char **argv)
 {
@@ -41,6 +42,10 @@ int     main(int argc, char **argv)
 	ret = (int)ft_read(-1, dst, 6);
 	printf("ret is %d, read '%.*s'\n", ret, ret, dst);
 	ret = (int)ft_read(-1, dst, 6);
-	printf("ret is %d, read '%.*s'\n", ret, ret, dst);
+	printf("ret is %d, read '%.*s'\n\n", ret, ret, dst);
+
+	printf("'%s'\n", ft_strdup("hello"));
+	printf("'%s'\n", ft_strdup("world"));
+	printf("'%s'\n", ft_strdup(""));
 	return (0);
 }
