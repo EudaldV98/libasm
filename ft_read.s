@@ -14,11 +14,11 @@
 				global  _ft_read
 				section __TEXT,__text
 _ft_read:
-				mov             rax, 0x2000003
-				syscall
-				cmp				rdx, 0
-				je				ok
-				mov				rax, -1
+				mov             rax, 0x2000003	;put read in syscall
+				syscall							;call operting system to call read func
+				cmp				rdx, 0			;check if invalid fd
+				je				ok				;if good return the value
+				mov				rax, -1			;return -1 if invalid
 				ret
 ok:
 				ret

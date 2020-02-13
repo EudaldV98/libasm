@@ -14,15 +14,15 @@
 				global	_ft_strlen
 				section	__TEXT,__text
 _ft_strlen:
-				mov				rax, 0
-				mov				rcx, 0
+				mov				rax, 0	;clean rax
+				mov				rcx, 0	;clean rcx
 loop:
-				mov				cl, [rdi + rax]
-				cmp				rcx, 0
-				jne				newloop
-				jmp				end
+				mov				cl, [rdi + rax]	;rdi + rax in cl
+				cmp				rcx, 0			;check end of string
+				jne				newloop			;jmp if not equal
+				jmp				end				;if equal go to ed
 newloop:
-				inc				rax
-				jmp				loop
+				inc				rax				;inc in rax
+				jmp				loop			;return to loop
 end:
 				ret

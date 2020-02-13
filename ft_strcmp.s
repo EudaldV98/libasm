@@ -13,21 +13,14 @@
 				global	_ft_strcmp
 				section	__TEXT,__text
 _ft_strcmp:
-				jmp				loop
+				mov				rax, 0		;clear rax
 loop:
-				mov				rax, 0
-				mov				r8, 0
-				mov				r9, 0
-				mov				r8b, [rdi]
-				mov				r9b, [rsi]
-				inc				rdi
-				inc				rsi
-				cmp				r9, byte 0
-				je				end
-				sub				r8, r9
-				cmp				r8, byte 0
-				jne				end
-				jz				loop
+				mov				rcx, 0		;clear rcx
+				mov				al, [rdi]	;rdi in al
+				mov				cl, [rsi]	;rsi in cl
+				inc				rdi			;move to next char of 1st arg
+				inc				rsi			;move to next char of 2nd arg
+				sub				rax, rcx	;compare both args
+				jz				loop		;go to loop if the result is zero ie. continue to next character else go to end
 end:
-				mov				rax, r8
 				ret
