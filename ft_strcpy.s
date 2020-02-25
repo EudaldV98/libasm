@@ -13,8 +13,7 @@
 				global	_ft_strcpy
 				section	__TEXT,__text
 _ft_strcpy:
-				mov				rax, 0
-				mov				rax, 0
+				xor				rax, rax
 loop:
 				mov				cl, [rsi + rax]
 				cmp				cl, 0

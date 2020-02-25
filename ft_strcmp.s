@@ -17,7 +17,7 @@ _ft_strcmp:
 loop:
 				mov				rcx, 0		;clear rcx
 				mov				al, [rdi]	;rdi in al
-				mov				cl, [rsi]	;rsi in cl
+				mov				cl, [rsi]	;rsi in cl ;Byte 0-1 de rcx
 				inc				rdi			;move to next char of 1st arg
 				inc				rsi			;move to next char of 2nd arg
 				sub				rax, rcx	;compare both args

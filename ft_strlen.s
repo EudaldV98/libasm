@@ -20,7 +20,7 @@ loop:
 				mov				cl, [rdi + rax]	;rdi + rax in cl
 				cmp				rcx, 0			;check end of string
 				jne				newloop			;jmp if not equal
-				jmp				end				;if equal go to ed
+				jmp				end				;if equal go to end
 newloop:
 				inc				rax				;inc in rax
 				jmp				loop			;return to loop
