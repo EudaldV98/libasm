@@ -16,9 +16,9 @@
 _ft_read:
 				mov             rax, 0x2000003	;put read in syscall
 				syscall							;call operting system to call read func
-				cmp				rdx, 0			;check if invalid fd
-				je				ok				;if good return the value
-				mov				rax, -1			;return -1 if invalid
+				jc				ok				;jmp to func to set rax to -1 if error ocurrs
 				ret
+
 ok:
+				mov				rax, -1
 				ret

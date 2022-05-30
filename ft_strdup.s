@@ -11,31 +11,26 @@
 # **************************************************************************** #
 
 			global _ft_strdup
+			extern _ft_strlen
+			extern _ft_strcpy
 			extern _malloc
 			section __TEXT,__text
 _ft_strdup:
-			mov				rax, 0
-strlen:
-			cmp				[rdi + rax], byte 0
-			je				alloc
-			inc				rax
-			jmp				strlen
-alloc:
+			call			_ft_strlen
 			push			rdi
+			inc 			rax
 			mov				rdi, rax
-			inc				rdi
+
+alloc:
 			call			_malloc
 			cmp				rax, 0
-			je				end
+			jle				error
 			pop				rdi
-			mov				rcx, 0
-copy:
-			mov				dl, [rdi, rcx]
-			cmp				dl, 0
-			jz				end
-			mov				[rax + rcx], dl
-			inc				rcx
-			jmp				copy
-end:
-			mov				[rax + rcx], byte 0
+			mov				rsi, rdi
+			mov				rdi, rax
+			call			_ft_strcpy
+			ret
+
+error:
+			xor				rax, rax
 			ret

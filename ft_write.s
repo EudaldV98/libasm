@@ -16,9 +16,9 @@
 _ft_write:
 				mov				rax, 0x2000004	;put write in the syscall register
 				syscall							;call the operating system to call write function
-				cmp				rdx, 0			;check if fd is invalid
-				je				ok				;if is valid return the value
-				mov				rax, -1			;return -1 if invalid
+				jc				ok				;jmp to func to set rax to -1 if error ocurrs
 				ret
+
 ok:
+				mov				rax, -1
 				ret
